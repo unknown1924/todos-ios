@@ -10,16 +10,16 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class ProfileViewModel: ObservableObject {
-    init() {}
     
     @Published var currentUser: User? = nil
+    @Published var image: String = ""
+    
+    let db = Firestore.firestore()
     
     func fetchUser() {
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
-        
-        let db = Firestore.firestore()
         
         db.collection("users")
             .document(userId)
@@ -32,7 +32,25 @@ class ProfileViewModel: ObservableObject {
                     self.currentUser = User(id: data["id"] as? String ?? "",
                                             name: data["name"] as? String ?? "",
                                             email: data["email"] as? String ?? "",
+                                            image: data["image"] as? String ?? "",
                                             joined: data["joined"] as? TimeInterval ?? 0)
+                }
+            }
+    }
+    
+    func updateImage() {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        db.collection("users")
+            .document(userId)
+            .updateData(["image": image]) {
+                err in
+                if let err = err {
+                    print("Error: \(err)")
+                } else {
+                    print("Success")
                 }
             }
     }

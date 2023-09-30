@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileImageGridView: View {
     
+    @StateObject var viewModel = ProfileViewModel()
     @Binding var profileImage: String
     @State var isPressed: Bool = false
     
@@ -58,8 +59,9 @@ struct ProfileImageGridView: View {
             .scaleEffect(profileImage == image ? (isPressed ? 1.2 : 1.0) : 1.0)
             .animation(.smooth, value: profileImage == image ? true : false)
             .onTapGesture {
-//                self.selectedImage = image
                 profileImage = image
+                viewModel.updateImage()
+                
                 isPressed = true
                 print(profileImage)
             }

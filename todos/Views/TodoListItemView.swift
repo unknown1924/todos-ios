@@ -24,19 +24,18 @@ struct TodoListItemView: View {
             }
             
             Spacer()
-            
-            Button {
-                viewModel.toggleDone(item: item)
-            } label: {
                 Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
                     .font(.largeTitle)
                     .foregroundStyle(.blue)
                     .contentTransition(.symbolEffect(.replace))
-            }
+                    .frame(width: 44, height: 44)
+                    .onTapGesture {
+                        viewModel.toggleDone(item: item)
+                    }
         }
     }
 }
 
 #Preview {
-    TodoListItemView(item: TodoListItem(id: "1", title: "Get Milk!🍼", dueDate: Date().timeIntervalSince1970, createdDate: Date().timeIntervalSince1970, isDone: false))
+    TodoListItemView(item: TodoListItem(id: "1", title: "Get Milk!", dueDate: Date().timeIntervalSince1970, createdDate: Date().timeIntervalSince1970, isDone: true))
 }

@@ -13,10 +13,12 @@ struct TodoListView: View {
     @StateObject var viewModel: TodoListViewModel
     @FirestoreQuery var items: [TodoListItem]
     @State private var searchTerm = ""
+    @State private var currentItemId = ""
     
     var filteredItems: [TodoListItem] {
-        guard !searchTerm.isEmpty else { return items }
-        return items.filter { $0.title.localizedCaseInsensitiveContains(searchTerm) }
+        guard !searchTerm.isEmpty else { return items.sorted { item, _ in
+            !item.isDone } }
+        return items.filter { $0.title.localizedCaseInsensitiveContains(searchTerm)}
     }
     
     init(userId: String) {
@@ -29,7 +31,11 @@ struct TodoListView: View {
             VStack {
                 List(filteredItems) { item in
                     TodoListItemView(item: item)
-                        .swipeActions {
+                        .onTapGesture {
+                            viewModel.showEditItemView = true
+                            currentItemId = item.id
+                        }
+                        .swipeActions(allowsFullSwipe: true) {
                             Button("Delete") {
                                 viewModel.delete(id: item.id)
                             }
@@ -51,10 +57,13 @@ struct TodoListView: View {
             .sheet(isPresented: $viewModel.showNewItemView) {
                 NewItemView(showNewItemView: $viewModel.showNewItemView)
             }
+            .sheet(isPresented: $viewModel.showEditItemView) {
+                EditItemView(showEditItemView: $viewModel.showEditItemView, itemId: currentItemId)
+            }
         }
     }
 }
 
 #Preview {
-        TodoListView(userId: "GZd9tP8RSTfH3nF9fanhJzr6N2c2")
+        TodoListView(userId: "5WeTXi6f5JTibQotXLVqXiq8PMM2")
 }

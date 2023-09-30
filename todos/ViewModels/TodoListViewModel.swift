@@ -12,16 +12,17 @@ import FirebaseAuth
 /// viewmodel for list of todo list items
 class TodoListViewModel: ObservableObject {
     @Published var showNewItemView: Bool = false
+    @Published var showEditItemView: Bool = false
     let userId: String
     
     init(userId: String) {
         self.userId = userId
     }
     
+    let db = Firestore.firestore()
+    
     func delete(id: String) {
         // delete from firebase
-        let db = Firestore.firestore()
-        
         db.collection("users")
             .document(userId)
             .collection("todos")

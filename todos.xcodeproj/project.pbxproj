@@ -57,6 +57,7 @@
 		87CA09C12AC5668D006391B5 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CA09C02AC5668D006391B5 /* TodoListView.swift */; };
 		87CA09C32AC58567006391B5 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CA09C22AC58567006391B5 /* Animation.swift */; };
 		87DA35FA2AC5CA1900C25545 /* ProfileImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA35F92AC5CA1900C25545 /* ProfileImageGridView.swift */; };
+		87FF9EFD2AC88BE400BF716A /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF9EFC2AC88BE400BF716A /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		87CA09C02AC5668D006391B5 /* TodoListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
 		87CA09C22AC58567006391B5 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		87DA35F92AC5CA1900C25545 /* ProfileImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageGridView.swift; sourceTree = "<group>"; };
+		87FF9EFC2AC88BE400BF716A /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				87AFE07A2ABF6B9A00589242 /* TButton.swift */,
 				87CA09C22AC58567006391B5 /* Animation.swift */,
 				87DA35F92AC5CA1900C25545 /* ProfileImageGridView.swift */,
+				87FF9EFC2AC88BE400BF716A /* EditItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				87DA35FA2AC5CA1900C25545 /* ProfileImageGridView.swift in Sources */,
 				87AFE0672ABF2F0200589242 /* User.swift in Sources */,
 				872A14992ABF80C2003AC4CD /* Extensions.swift in Sources */,
+				87FF9EFD2AC88BE400BF716A /* EditItemView.swift in Sources */,
 				87AFE07B2ABF6B9A00589242 /* TButton.swift in Sources */,
 				87AFE0652ABF2E9200589242 /* TodoListItemView.swift in Sources */,
 				87AFE0362ABEF6AE00589242 /* todosApp.swift in Sources */,

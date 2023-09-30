@@ -11,7 +11,7 @@ struct ProfileView: View {
     
     @StateObject var viewModel = ProfileViewModel()
     @State var showProfileSelector = false
-    @State private var profileImage = "cat"      // I mean cats are cute, ain't they?
+    @State var profileImage = "cat"      // I mean cats are cute, aren't they?
     
     var body: some View {
         NavigationView {
