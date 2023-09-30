@@ -11,7 +11,7 @@ struct ProfileView: View {
     
     @StateObject var viewModel = ProfileViewModel()
     @State var showProfileSelector = false
-    @State private var profileImage = "cat"
+    @State private var profileImage = "cat"      // I mean cats are cute, ain't they?
     
     var body: some View {
         NavigationView {
@@ -75,7 +75,6 @@ struct ProfileView: View {
         TButton(title: "Log Out", icon: "power.circle.fill", color: .red) {
             viewModel.logout()
         }
-        .frame(width: 340, height: 65)
     }
 }
 
